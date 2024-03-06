@@ -45,4 +45,8 @@ export const bookServiceApi = createApi({
   }),
 });
 
-export const { useGetAllBooksQuery } = bookServiceApi;
+export const {
+  useGetAllBooksQuery,
+  useGetBooksBySearchQuery,
+  useGetBookByIdQuery,
+} = bookServiceApi;

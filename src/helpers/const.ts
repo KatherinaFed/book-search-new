@@ -1,3 +1,6 @@
+import { ContentOption } from "./types";
+
+
 export const getQueryParams = (
   searchData: string,
   categoryData: string,
@@ -10,3 +13,18 @@ export const getQueryParams = (
 
   return `${searchTerms}${filterBy}${orderBy}&startIndex=${startIndex}`;
 };
+
+export const categories: ContentOption[] = [
+  { value: 'all', name: 'All' },
+  { value: 'art', name: 'Art' },
+  { value: 'biography', name: 'Biography' },
+  { value: 'computers', name: 'Computers' },
+  { value: 'history', name: 'History' },
+  { value: 'medical', name: 'Medical' },
+  { value: 'poetry', name: 'Poetry' },
+];
+
+export const sortingBy: ContentOption[] = [
+  { value: 'relevance', name: 'Relevance' },
+  { value: 'newest', name: 'Newest' },
+];

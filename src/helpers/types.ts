@@ -65,3 +65,16 @@ export interface DataBookParams {
   sortData: string;
   startIndex: number;
 }
+
+export interface ContentOption {
+  value: string;
+  name: string;
+}
+
+export interface SearchBaseProps {
+  setFilterBy: (value: string) => void;
+  filterBy: string;
+  setOrderBy: (value: string) => void;
+  orderBy: string;
+  setStartIndex: (value: number) => void;
+}
