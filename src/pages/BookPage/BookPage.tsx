@@ -1,4 +1,3 @@
-import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useGetBookByIdQuery } from '../../services/bookService';
 import ErrorHandler from '../../components/ErrorHandler/ErrorHandler';

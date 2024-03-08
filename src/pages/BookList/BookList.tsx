@@ -1,16 +1,18 @@
 import { BookItem, BookResponse } from '../../helpers/types';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
-import Preloader from '../../components/Preloader/Preloader';
 import { SerializedError } from '@reduxjs/toolkit';
 import BookCard from '../../components/BookCard/BookCard';
 import ErrorHandler from '../../components/ErrorHandler/ErrorHandler';
+import LoadMoreButton from '../../features/LoadMoreButton/LoadMoreButton';
+import { useState } from 'react';
+import Preloader from '../../components/Preloader/Preloader';
 
 interface BooksContentProps {
   dataBook: BookResponse | undefined;
   isLoading: boolean;
   isFetching: boolean;
   errorFetch: FetchBaseQueryError | SerializedError | undefined;
-  setStartIndex: (value: number) => void;
+  setStartIndex: React.Dispatch<React.SetStateAction<number>>;
 }
 
 function BookList({
@@ -20,6 +22,12 @@ function BookList({
   errorFetch,
   setStartIndex,
 }: BooksContentProps) {
+  const [isPaginate, setIsPaginate] = useState(false);
+
+  if (isLoading && isFetching) {
+    return <Preloader isPaginate={isPaginate} />;
+  }
+
   return (
     <section className="book_container">
       <div className="book_total">Found {dataBook?.totalItems} results</div>
@@ -35,12 +43,13 @@ function BookList({
           />
         ))}
       </div>
-      {/* LoadMore button */}
-      <ErrorHandler
-        isLoading={isLoading}
+      <LoadMoreButton
         isFetching={isFetching}
-        error={errorFetch}
+        setStartIndex={setStartIndex}
+        isPaginate={isPaginate}
+        setIsPaginate={setIsPaginate}
       />
+      <ErrorHandler error={errorFetch} />
     </section>
   );
 }

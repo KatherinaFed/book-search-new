@@ -78,5 +78,5 @@ export interface SearchBaseProps {
   filterBy: string;
   setOrderBy: (value: string) => void;
   orderBy: string;
-  setStartIndex: (value: number) => void;
+  setStartIndex: React.Dispatch<React.SetStateAction<number>>;
 }

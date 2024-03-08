@@ -8,7 +8,7 @@ interface SelectorItemProps {
   defaultValue: string;
   name: string;
   options: ContentOption[];
-  setStartIndex: (value: number) => void;
+  setStartIndex: React.Dispatch<React.SetStateAction<number>>;
 }
 
 function SelectorItem({
