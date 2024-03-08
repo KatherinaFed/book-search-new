@@ -12,7 +12,7 @@ function App() {
   const [orderBy, setOrderBy] = useState('relevance');
   const [startIndex, setStartIndex] = useState(0);
 
-  const { data, isLoading, isFetching, isError, error } = useGetAllBooksQuery({
+  const { data, isLoading, isFetching, error } = useGetAllBooksQuery({
     searchTerms: searchData,
     categoryData: filterBy,
     sortData: orderBy,
@@ -37,7 +37,6 @@ function App() {
               dataBook={data}
               isLoading={isLoading}
               isFetching={isFetching}
-              isError={isError}
               errorFetch={error}
               setStartIndex={setStartIndex}
             />

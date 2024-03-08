@@ -3,12 +3,13 @@ import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import Preloader from '../../components/Preloader/Preloader';
 import { SerializedError } from '@reduxjs/toolkit';
 import BookCard from '../../components/BookCard/BookCard';
+import ErrorHandler from '../../components/ErrorHandler/ErrorHandler';
+import { error } from 'console';
 
 interface BooksContentProps {
   dataBook: BookResponse | undefined;
   isLoading: boolean;
   isFetching: boolean;
-  isError: boolean;
   errorFetch: FetchBaseQueryError | SerializedError | undefined;
   setStartIndex: (value: number) => void;
 }
@@ -17,34 +18,9 @@ function BookList({
   dataBook,
   isLoading,
   isFetching,
-  isError,
   errorFetch,
   setStartIndex,
 }: BooksContentProps) {
-  if (isLoading && isFetching) {
-    return <Preloader />;
-  }
-
-  if (errorFetch) {
-    if ('status' in errorFetch) {
-      const errMsg =
-        'error' in errorFetch
-          ? errorFetch.error
-          : JSON.stringify(errorFetch.data);
-
-      return (
-        <div>
-          <div>An error has occurred:</div>
-          <div>{errMsg}</div>
-        </div>
-      );
-    } else {
-      return <div>{errorFetch.message}</div>;
-    }
-  }
-
-  console.log(dataBook);
-
   return (
     <section className="book_container">
       <div className="book_total">Found {dataBook?.totalItems} results</div>
@@ -60,6 +36,12 @@ function BookList({
           />
         ))}
       </div>
+      {/* LoadMore button */}
+      <ErrorHandler
+        isLoading={isLoading}
+        isFetching={isFetching}
+        error={errorFetch}
+      />
     </section>
   );
 }
