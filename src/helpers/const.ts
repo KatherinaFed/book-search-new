@@ -1,5 +1,4 @@
-import { ContentOption } from "./types";
-
+import { ContentOption } from './types';
 
 export const getQueryParams = (
   searchData: string,

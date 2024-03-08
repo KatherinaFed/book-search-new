@@ -47,7 +47,7 @@ export const bookServiceApi = createApi({
       providesTags: ['Books'],
     }),
     // GET A BOOK BY ID
-    getBookById: builder.query<BookResponse, string>({
+    getBookById: builder.query<BookItem, string>({
       query: (bookID) =>
         `volumes/${bookID}?key=${import.meta.env.VITE_APP_API_KEY}`,
       providesTags: ['Books'],

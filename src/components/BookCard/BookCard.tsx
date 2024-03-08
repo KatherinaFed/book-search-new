@@ -18,7 +18,11 @@ function BookCard({ bookId, img, title, category, author }: BookCardProps) {
       onClick={() => navigate(`book/${bookId}`)}
     >
       <img src={img} alt="Book cover" />
-      
+      <div className="book_card_info">
+        <h2>{title}</h2>
+        <div className="category">{category.map((cat) => cat)}</div>
+        <div className="author">{author.map((author) => author)}</div>
+      </div>
     </div>
   );
 }

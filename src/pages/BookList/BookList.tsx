@@ -4,7 +4,6 @@ import Preloader from '../../components/Preloader/Preloader';
 import { SerializedError } from '@reduxjs/toolkit';
 import BookCard from '../../components/BookCard/BookCard';
 import ErrorHandler from '../../components/ErrorHandler/ErrorHandler';
-import { error } from 'console';
 
 interface BooksContentProps {
   dataBook: BookResponse | undefined;
