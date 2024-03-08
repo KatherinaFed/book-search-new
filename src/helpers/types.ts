@@ -1,10 +1,11 @@
-export interface BookItems {
+export interface BookItem {
   kind: string;
   id: string;
   etag: string;
   selfLink: string;
   volumeInfo: {
     title: string;
+    authors?: string[];
     publishedDate: string;
     description: string;
     readingModes: {
@@ -13,14 +14,15 @@ export interface BookItems {
     };
     pageCount: number;
     printType: string;
+    categories?: string[];
     averageRating: number;
     ratingsCount: number;
     maturityRating: string;
     allowAnonLogging: boolean;
     contentVersion: string;
     imageLinks: {
-      smallThumbnail: string;
-      thumbnail: string;
+      smallThumbnail?: string;
+      thumbnail?: string;
     };
     language: string;
     previewLink: string;
@@ -53,10 +55,10 @@ export interface BookItems {
   };
 }
 
-export interface BooksResponse {
+export interface BookResponse {
   kind: string;
   totalItems: number;
-  items: BookItems[];
+  items: BookItem[];
 }
 
 export interface DataBookParams {

@@ -9,4 +9,6 @@ const store = configureStore({
     getDefaultMiddleware().concat(bookServiceApi.middleware),
 });
 
-export default store;
+export type RootState = ReturnType<typeof store.getState>
+
+export default store
