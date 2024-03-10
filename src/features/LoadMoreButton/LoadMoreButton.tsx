@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Preloader from '../../components/Preloader/Preloader';
 
 interface LoadMoreButtonProps {
@@ -14,7 +14,6 @@ function LoadMoreButton({
   isPaginate,
   setIsPaginate,
 }: LoadMoreButtonProps) {
-  // const [isPaginate, setIsPaginate] = useState(false);
 
   const handleLoadClick = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>

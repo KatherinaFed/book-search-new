@@ -24,10 +24,6 @@ export const bookServiceApi = createApi({
           url: `volumes?q=${queryParams}&key=${
             import.meta.env.VITE_APP_API_KEY
           }`,
-          params: {
-            startIndex: 0,
-            maxResults: 30,
-          },
         };
       },
       transformResponse: (response: BookResponse) => {
@@ -43,6 +39,29 @@ export const bookServiceApi = createApi({
             return book;
           }),
         };
+      },
+      serializeQueryArgs: ({ endpointName }) => {
+        return endpointName;
+      },
+      merge: (currentCache, newItems, { arg }) => {
+        if (arg.startIndex) {
+          const updatedCache = {
+            ...currentCache,
+            totalItems: newItems.totalItems,
+            items: [...currentCache.items, ...newItems.items],
+          };
+
+          return updatedCache;
+        }
+
+        if (arg.categoryData || arg.searchTerms || arg.sortData) {
+          return newItems;
+        }
+
+        return currentCache;
+      },
+      forceRefetch({ currentArg, previousArg }) {
+        return currentArg?.startIndex !== previousArg?.startIndex;
       },
       providesTags: ['Books'],
     }),

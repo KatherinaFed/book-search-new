@@ -4,12 +4,7 @@ import ErrorHandler from '../../components/ErrorHandler/ErrorHandler';
 
 function BookPage() {
   const { id } = useParams();
-  console.log(id);
-  const { data, isLoading, isFetching, error } = useGetBookByIdQuery(
-    id as string
-  );
-
-  console.log(data);
+  const { data, error } = useGetBookByIdQuery(id as string);
 
   return (
     <section className="book_page_container">
@@ -23,18 +18,16 @@ function BookPage() {
         <div className="category">
           {data?.volumeInfo.categories?.map((cat) => cat)}
         </div>
-        <div className="page_count">Page count: {data?.volumeInfo.pageCount}</div>
+        <div className="page_count">
+          Page count: {data?.volumeInfo.pageCount}
+        </div>
         <h2 className="title">{data?.volumeInfo.title}</h2>
         <div className="author">
           Author: {data?.volumeInfo.authors?.map((author) => author)}
         </div>
         <div className="description">{data?.volumeInfo.description}</div>
       </div>
-      <ErrorHandler
-        isLoading={isLoading}
-        isFetching={isFetching}
-        error={error}
-      />
+      <ErrorHandler error={error} />
     </section>
   );
 }

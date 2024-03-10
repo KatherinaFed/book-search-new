@@ -14,7 +14,7 @@ function SearchForm({ setSearchData, setStartIndex }: SearchFormProps) {
 
     setSearchData(searchBook);
     // setSearchBook('');
-    // setStartIndex(0);
+    setStartIndex(0);
   };
 
   return (
