@@ -1,0 +1,40 @@
+.book_card_container {
+  border: 1px solid #bebebe;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+  padding: 10px;
+  text-align: center;
+  width: 200px;
+  cursor: pointer;
+
+  img {
+    height: 70%;
+  }
+
+  .book_card_info {
+    h2 {
+      margin-top: 5px;
+      font-size: 16px;
+      font-weight: 500;
+      color: black;
+    }
+    .category {
+      font-size: 14px;
+      color: #888;
+      font-weight: 300;
+    }
+
+    .author {
+      color: #888;
+      font-weight: 500;
+    }
+  }
+}
+
+@media only screen and (max-width: 428px) {
+  .book_card_container {
+    width: 300px;
+  }
+}

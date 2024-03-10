@@ -1,11 +1,12 @@
-import { BookItem, BookResponse } from '../../helpers/types';
+import { useState } from 'react';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import { SerializedError } from '@reduxjs/toolkit';
+import { BookItem, BookResponse } from '../../helpers/types';
 import BookCard from '../../components/BookCard/BookCard';
 import ErrorHandler from '../../components/ErrorHandler/ErrorHandler';
 import LoadMoreButton from '../../features/LoadMoreButton/LoadMoreButton';
-import { useState } from 'react';
 import Preloader from '../../components/Preloader/Preloader';
+import './BookList.scss'
 
 interface BooksContentProps {
   dataBook: BookResponse | undefined;
@@ -27,8 +28,6 @@ function BookList({
   if (isLoading && isFetching) {
     return <Preloader isPaginate={isPaginate} />;
   }
-
-  console.log(dataBook?.items)
 
   return (
     <section className="book_container">
