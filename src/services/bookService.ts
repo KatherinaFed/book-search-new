@@ -13,6 +13,7 @@ export const bookServiceApi = createApi({
     // GET ALL BOOKS
     getAllBooks: builder.query<BookResponse, DataBookParams>({
       query: (dataParams) => {
+
         const queryParams = getQueryParams(
           dataParams.searchTerms,
           dataParams.categoryData,
@@ -27,6 +28,7 @@ export const bookServiceApi = createApi({
         };
       },
       transformResponse: (response: BookResponse) => {
+        console.log(response)
         return {
           ...response,
           items: response.items.map((book: BookItem) => {
@@ -40,13 +42,12 @@ export const bookServiceApi = createApi({
           }),
         };
       },
-      serializeQueryArgs: ({ endpointName }) => {
-        return endpointName;
-      },
       merge: (currentCache, newItems, { arg }) => {
+        console.log(currentCache)
         if (arg.startIndex) {
           const updatedCache = {
-            ...currentCache,
+            // ...currentCache,
+            ...newItems,
             totalItems: newItems.totalItems,
             items: [...currentCache.items, ...newItems.items],
           };
@@ -60,8 +61,8 @@ export const bookServiceApi = createApi({
 
         return currentCache;
       },
-      forceRefetch({ currentArg, previousArg }) {
-        return currentArg?.startIndex !== previousArg?.startIndex;
+      forceRefetch({ currentArg, previousArg = 0 }) {
+        return currentArg?.startIndex !== previousArg;
       },
       providesTags: ['Books'],
     }),

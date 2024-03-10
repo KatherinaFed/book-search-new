@@ -1,6 +1,7 @@
 import SelectorItem from '../SelectorItem/SelectorItem';
 import { categories, sortingBy } from '../../helpers/const';
 import { SearchBaseProps } from '../../helpers/types';
+import './Selectors.scss'
 
 function Selectors({
   setFilterBy,

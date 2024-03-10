@@ -6,12 +6,19 @@
 
 #root {
   max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+  padding-top: 1rem;
   text-align: center;
 }
 
 .App {
   display: flex;
   flex-direction: column;
+}
+
+@media only screen and (max-width: 428px) {
+  #root {
+    padding-top: 0;
+  }
 }

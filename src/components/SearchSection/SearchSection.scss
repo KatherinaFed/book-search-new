@@ -1,0 +1,52 @@
+.search_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 300px;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  background-image: url('../../assets/bgBooksHeader.png');
+
+  .title_link {
+    width: fit-content;
+    h1 {
+      font-size: 52px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    h2 {
+      font-size: 24px;
+      font-weight: 300;
+      color: #fff;
+    }
+  }
+}
+
+@media only screen and (max-width: 428px) {
+  .search_container {
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .title_link {
+      width: fit-content;
+      h1 {
+        font-size: 32px;
+        font-weight: 600;
+        color: #fff;
+      }
+
+      h2 {
+        font-size: 22px;
+        font-weight: 300;
+        color: #fff;
+      }
+    }
+  }
+}

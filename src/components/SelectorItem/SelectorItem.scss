@@ -1,0 +1,18 @@
+.selector_item {
+  // display: flex;
+  // flex-direction: column;
+  width: 100%;
+  max-width: 150px;
+  font-weight: 500;
+
+  select {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+  }
+}
+

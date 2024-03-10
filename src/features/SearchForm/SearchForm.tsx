@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
+import './SearchForm.scss';
 
 interface SearchFormProps {
   setSearchData: (value: string) => void;
@@ -24,10 +25,10 @@ function SearchForm({ setSearchData, setStartIndex }: SearchFormProps) {
           value={searchBook}
           onChange={(e) => setSearchBook(e.target.value)}
           placeholder="Search a book..."
+          type="text"
         />
-        <button type="submit">
-          <BsSearch />
-        </button>
+        <button type="submit"><i className="fa fa-search" 
+        aria-hidden="true"></i></button>
       </form>
     </div>
   );

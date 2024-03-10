@@ -1,6 +1,7 @@
 import React from 'react';
 import { uniqueId } from 'lodash';
 import { ContentOption } from '../../helpers/types';
+import './SelectorItem.scss';
 
 interface SelectorItemProps {
   setSelectBy: (value: string) => void;

@@ -28,6 +28,8 @@ function BookList({
     return <Preloader isPaginate={isPaginate} />;
   }
 
+  console.log(dataBook?.items)
+
   return (
     <section className="book_container">
       <div className="book_total">Found {dataBook?.totalItems} results</div>

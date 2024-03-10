@@ -26,6 +26,7 @@ function BookPage() {
           Author: {data?.volumeInfo.authors?.map((author) => author)}
         </div>
         <div className="description">{data?.volumeInfo.description}</div>
+        div.
       </div>
       <ErrorHandler error={error} />
     </section>

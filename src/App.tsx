@@ -7,13 +7,14 @@ import BookPage from './pages/BookPage/BookPage';
 import BookList from './pages/BookList/BookList';
 
 function App() {
-  const [searchData, setSearchData] = useState<string>('');
+  const [searchTerms, setSearchTerms] = useState<string>('');
   const [filterBy, setFilterBy] = useState<string>('all');
   const [orderBy, setOrderBy] = useState<string>('relevance');
   const [startIndex, setStartIndex] = useState<number>(0);
+  console.log('startIndex', startIndex);
 
   const { data, isLoading, isFetching, error } = useGetAllBooksQuery({
-    searchTerms: searchData,
+    searchTerms,
     categoryData: filterBy,
     sortData: orderBy,
     startIndex,
@@ -22,7 +23,7 @@ function App() {
   return (
     <div className="App">
       <SearchSection
-        setSearchData={setSearchData}
+        setSearchData={setSearchTerms}
         setFilterBy={setFilterBy}
         filterBy={filterBy}
         setOrderBy={setOrderBy}
