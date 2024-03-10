@@ -1,5 +1,4 @@
 import React from 'react';
-import { uniqueId } from 'lodash';
 import { ContentOption } from '../../helpers/types';
 import { Select } from 'antd';
 import './SelectorItem.scss';
@@ -30,6 +29,7 @@ function SelectorItem({
     <div className="selector_item">
       {name}
       <Select
+        value={selectBy}
         defaultValue={defaultValue as string}
         style={{ width: 120 }}
         onChange={handleChangeSelector}
