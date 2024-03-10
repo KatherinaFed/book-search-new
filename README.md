@@ -1,7 +1,9 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f7a3449e-d2d7-4443-be70-6031ff6f0c00/deploy-status)](https://app.netlify.com/sites/book-adventure/deploys)
+
 # Google Books Search App v2.0 :open_book:
 The Google Books Search App is a user-friendly app that allows you to search for books and discover detailed information about them.
 
-### Books Search app: [deployed on Netlify]() 
+### Books Search app: [deployed on Netlify](https://book-adventure.netlify.app/) 
 
 API: [Google API information](https://developers.google.com/books/docs/v1/using)
 
