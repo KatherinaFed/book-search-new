@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useGetBookByIdQuery } from '../../services/bookService';
 import ErrorHandler from '../../components/ErrorHandler/ErrorHandler';
 
-function BookPage() {
+function Book() {
   const { id } = useParams();
   const { data, error } = useGetBookByIdQuery(id as string);
 
@@ -33,4 +33,4 @@ function BookPage() {
   );
 }
 
-export default BookPage;
+export default Book;

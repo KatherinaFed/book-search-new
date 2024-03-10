@@ -3,8 +3,8 @@ import './App.css';
 import SearchSection from './components/SearchSection/SearchSection';
 import { useState } from 'react';
 import { useGetAllBooksQuery } from './services/bookService';
-import BookPage from './pages/BookPage/BookPage';
-import BookList from './pages/BookList/BookList';
+import Book from './pages/Book/Book';
+import Main from './pages/Main/Main';
 
 function App() {
   const [searchTerms, setSearchTerms] = useState<string>('');
@@ -34,7 +34,7 @@ function App() {
         <Route
           path="/"
           element={
-            <BookList
+            <Main
               dataBook={data}
               isLoading={isLoading}
               isFetching={isFetching}
@@ -43,7 +43,7 @@ function App() {
             />
           }
         />
-        <Route path="/book/:id" element={<BookPage />} />
+        <Route path="/book/:id" element={<Book />} />
       </Routes>
     </div>
   );

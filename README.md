@@ -1,30 +1,45 @@
-# React + TypeScript + Vite
+# Google Books Search App v2.0 :open_book:
+The Google Books Search App is a user-friendly app that allows you to search for books and discover detailed information about them.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Books Search app: [deployed on Netlify]() 
 
-Currently, two official plugins are available:
+API: [Google API information](https://developers.google.com/books/docs/v1/using)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Key features:
+- Filtering books by **categories**:
+   - all (by default);
+   - biography;
+   - computers;
+   - history;
+   - medical;
+   - poetry.
+- **Sorting** books by:
+   - relevance (by default);
+   - newest.
+- Detailed information about each book;
+- Pagination (*Load more button*);
 
-## Expanding the ESLint configuration
+## Key technologies:
+- React + Vite;
+- TypeScript;
+- Sass;
+- Ant design;
+- Redux Toolkit (RTK-query);
+- React-router-dom;
+- Framer-motion;
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+## Installation
 ```
+# Step 1: Clone the repository
+git clone https://github.com/KatherinaFed/book-search-new.git
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+# Step 2: Navigate to the project directory  
+cd book-search-new
+
+# Step 3: Install dependencies 
+npm install
+
+# Step 4: Start the app
+npm run dev
+```

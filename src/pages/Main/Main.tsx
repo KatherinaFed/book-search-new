@@ -6,9 +6,9 @@ import BookCard from '../../components/BookCard/BookCard';
 import ErrorHandler from '../../components/ErrorHandler/ErrorHandler';
 import LoadMoreButton from '../../features/LoadMoreButton/LoadMoreButton';
 import Preloader from '../../components/Preloader/Preloader';
-import './BookList.scss'
+import './Main.scss'
 
-interface BooksContentProps {
+interface MainContentProps {
   dataBook: BookResponse | undefined;
   isLoading: boolean;
   isFetching: boolean;
@@ -16,13 +16,13 @@ interface BooksContentProps {
   setStartIndex: React.Dispatch<React.SetStateAction<number>>;
 }
 
-function BookList({
+function Main({
   dataBook,
   isLoading,
   isFetching,
   errorFetch,
   setStartIndex,
-}: BooksContentProps) {
+}: MainContentProps) {
   const [isPaginate, setIsPaginate] = useState(false);
 
   if (isLoading && isFetching) {
@@ -55,4 +55,4 @@ function BookList({
   );
 }
 
-export default BookList;
+export default Main;
