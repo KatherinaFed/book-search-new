@@ -1,25 +1,37 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useGetBookByIdQuery } from '../../services/bookService';
 import ErrorHandler from '../../components/ErrorHandler/ErrorHandler';
-import spinner from '../../assets/spinner.gif';
+import noImage from '../../assets/noImg.jpg';
 import './Book.scss';
+import { uniqueId } from 'lodash';
+import Preloader from '../../components/Preloader/Preloader';
 
-function Book() {
+interface BookProps {
+  setSearchTerms: (value: string) => void;
+}
+
+function Book({ setSearchTerms }: BookProps) {
   const { id } = useParams();
+  const navigate = useNavigate();
+
   const { data, isFetching, isLoading, error } = useGetBookByIdQuery(
     id as string
   );
 
-  console.log(isFetching);
+  const handleAuthorClick = (value: string) => {
+    setSearchTerms(value);
+    navigate('/');
+  };
 
   return (
     <section className="book_page_container">
       <div className="book_page_left">
         {isLoading && isFetching ? (
-          spinner
+          <Preloader />
         ) : (
           <img
-            src={data?.volumeInfo.imageLinks.smallThumbnail}
+            className="book_cover"
+            src={data?.volumeInfo.imageLinks?.smallThumbnail || noImage}
             alt="book_cover"
           />
         )}
@@ -34,10 +46,22 @@ function Book() {
           <span>{`Page count: `}</span>
           {data?.volumeInfo.pageCount || 'no information'}
         </div>
+        <div className="publish_date">
+          <span>{`Publication date: `}</span>
+          {data?.volumeInfo.publishedDate || 'no information'}
+        </div>
         <div className="author">
           <span>{`Author: `}</span>
-          {data?.volumeInfo.authors?.map((author) => author) ||
-            'no information'}
+          {data?.volumeInfo.authors?.map((author, index, array) => (
+            <span
+              key={uniqueId()}
+              className="author_name"
+              onClick={() => handleAuthorClick(author)}
+            >
+              {author}
+              {index < array.length - 1 && ', '}
+            </span>
+          )) || 'no information'}
         </div>
         <div className="description">
           <span>{`Description: `}</span>

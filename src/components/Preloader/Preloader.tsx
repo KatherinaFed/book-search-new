@@ -2,7 +2,7 @@ import paginateLoader from '../../assets/smallBookLoader.gif'
 import preloader from '../../assets/preloader.gif'
 
 interface PreloaderProps {
-  isPaginate: boolean;
+  isPaginate?: boolean;
 }
 
 function Preloader({ isPaginate }: PreloaderProps) {

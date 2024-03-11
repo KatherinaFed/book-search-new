@@ -5,7 +5,11 @@
     flex: 1;
     padding: 20px;
 
-    img {
+    .spinner {
+      height: 30px;
+    }
+
+    .book_cover {
       width: 300px;
       box-shadow: gray 5px 5px 10px;
     }
@@ -28,6 +32,18 @@
 
     span {
       color: grey;
+    }
+
+    .author {
+      .author_name {
+        color: black;
+        cursor: pointer;
+        text-decoration: underline;
+      }
+
+      .author_name:hover {
+        color: grey;
+      }
     }
   }
 }

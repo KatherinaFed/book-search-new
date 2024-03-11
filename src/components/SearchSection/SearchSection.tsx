@@ -32,8 +32,8 @@ function SearchSection({
           >
             Search for books
           </motion.h1>
-          <h2>Discover Your Next Adventure</h2>
         </NavLink>
+        <h2>Discover Your Next Adventure</h2>
       </div>
       <SearchForm setSearchData={setSearchData} setStartIndex={setStartIndex} />
       <Selectors

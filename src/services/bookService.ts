@@ -28,7 +28,6 @@ export const bookServiceApi = createApi({
         };
       },
       transformResponse: (response: BookResponse) => {
-        console.log(response)
         return {
           ...response,
           items: response.items.map((book: BookItem) => {
@@ -61,8 +60,14 @@ export const bookServiceApi = createApi({
 
         return currentCache;
       },
-      forceRefetch({ currentArg, previousArg = 0 }) {
-        return currentArg?.startIndex !== previousArg;
+      forceRefetch({ currentArg, previousArg }) {
+        return (
+          currentArg?.categoryData !== previousArg?.categoryData ||
+          currentArg?.searchTerms !== previousArg?.searchTerms ||
+          currentArg?.sortData !== previousArg?.sortData ||
+          currentArg?.startIndex !== previousArg?.startIndex
+        );
+        // return currentArg?.startIndex !== previousArg;
       },
       providesTags: ['Books'],
     }),
