@@ -19,7 +19,7 @@ API: [Google API information](https://developers.google.com/books/docs/v1/using)
    - relevance (by default);
    - newest.
 - Detailed information about each book;
-- Pagination (*Load more button*);
+- Pagination;
 
 ## Key technologies:
 - React + Vite;
@@ -29,6 +29,7 @@ API: [Google API information](https://developers.google.com/books/docs/v1/using)
 - Redux Toolkit (RTK-query);
 - React-router-dom;
 - Framer-motion;
+- Vitest;
 
 
 ## Installation
