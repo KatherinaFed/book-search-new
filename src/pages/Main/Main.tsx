@@ -4,9 +4,10 @@ import { SerializedError } from '@reduxjs/toolkit';
 import { BookItem, BookResponse } from '../../helpers/types';
 import BookCard from '../../components/BookCard/BookCard';
 import ErrorHandler from '../../components/ErrorHandler/ErrorHandler';
-import LoadMoreButton from '../../features/LoadMoreButton/LoadMoreButton';
+
 import Preloader from '../../components/Preloader/Preloader';
-import './Main.scss'
+import './Main.scss';
+import { Pagination } from 'antd';
 
 interface MainContentProps {
   dataBook: BookResponse | undefined;
@@ -23,11 +24,20 @@ function Main({
   errorFetch,
   setStartIndex,
 }: MainContentProps) {
-  const [isPaginate, setIsPaginate] = useState(false);
+  const [page, setPage] = useState(0);
 
   if (isLoading && isFetching) {
-    return <Preloader isPaginate={isPaginate} />;
+    return <Preloader />;
   }
+
+  const totalItems = dataBook?.totalItems ?? 0;
+
+  const count = Math.ceil(totalItems / 15);
+
+  const handleChangePage = (page: number) => {
+    setPage(page);
+    setStartIndex((page - 1) * 15);
+  };
 
   return (
     <section className="book_container">
@@ -44,12 +54,16 @@ function Main({
           />
         ))}
       </div>
-      <LoadMoreButton
-        isFetching={isFetching}
-        setStartIndex={setStartIndex}
-        isPaginate={isPaginate}
-        setIsPaginate={setIsPaginate}
-      />
+
+      <div className="pagination">
+        <Pagination
+          defaultCurrent={1}
+          total={count}
+          onChange={handleChangePage}
+          showSizeChanger={false}
+          current={page}
+        />
+      </div>
       <ErrorHandler error={errorFetch} />
     </section>
   );

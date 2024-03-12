@@ -18,7 +18,7 @@ function wrapper({ children }: { children: ReactNode }) {
 describe('book service API', () => {
   it('should GET all data', async () => {
     server.use(
-      http.get(`https://www.googleapis.com/books/v1/volumes`, () => {
+      http.get(`https://www.googleapis.com/books/v1/volumes?q=books`, () => {
         return HttpResponse.json(mockResponse);
       })
     );

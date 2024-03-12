@@ -42,15 +42,13 @@ export const bookServiceApi = createApi({
         };
       },
       merge: (currentCache, newItems, { arg }) => {
-        console.log(currentCache)
         if (arg.startIndex) {
           const updatedCache = {
-            // ...currentCache,
-            ...newItems,
+            ...currentCache,
             totalItems: newItems.totalItems,
             items: [...currentCache.items, ...newItems.items],
           };
-
+      
           return updatedCache;
         }
 
@@ -61,13 +59,7 @@ export const bookServiceApi = createApi({
         return currentCache;
       },
       forceRefetch({ currentArg, previousArg }) {
-        return (
-          currentArg?.categoryData !== previousArg?.categoryData ||
-          currentArg?.searchTerms !== previousArg?.searchTerms ||
-          currentArg?.sortData !== previousArg?.sortData ||
-          currentArg?.startIndex !== previousArg?.startIndex
-        );
-        // return currentArg?.startIndex !== previousArg;
+        return currentArg?.startIndex !== previousArg?.startIndex
       },
       providesTags: ['Books'],
     }),

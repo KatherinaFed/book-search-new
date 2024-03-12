@@ -3,7 +3,7 @@ import { HttpResponse, http } from 'msw';
 import { mockResponse, mockResponseItem } from './mockResponse';
 
 export const handlers = [
-  http.get('https://www.googleapis.com/books/v1/volumes', () => {
+  http.get('https://www.googleapis.com/books/v1/volumes?q=books', () => {
     return HttpResponse.json(mockResponse);
   }),
   http.get('https://www.googleapis.com/books/v1/volumes/:id', () => {

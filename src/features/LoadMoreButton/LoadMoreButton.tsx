@@ -20,7 +20,7 @@ function LoadMoreButton({
   ) => {
     e.preventDefault();
 
-    setStartIndex((prevStartIndex: number) => prevStartIndex + 30);
+    setStartIndex((prevStartIndex: number) => prevStartIndex + 15);
     setIsPaginate(true);
   };
 

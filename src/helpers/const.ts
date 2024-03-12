@@ -10,7 +10,7 @@ export const getQueryParams = (
   const filterBy = categoryData === 'all' ? '' : `+subject=${categoryData}`;
   const orderBy = sortData === 'relevance' ? '' : `&orderBy=${sortData}`;
 
-  return `${searchTerms}${filterBy}${orderBy}&startIndex=${startIndex}&maxResults=30`;
+  return `${searchTerms}${filterBy}${orderBy}&startIndex=${startIndex}&maxResults=15`;
 };
 
 export const categories: ContentOption[] = [
