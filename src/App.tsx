@@ -1,7 +1,7 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css';
 import SearchSection from './components/SearchSection/SearchSection';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useGetAllBooksQuery } from './services/bookService';
 import Book from './pages/Book/Book';
 import Main from './pages/Main/Main';
@@ -12,12 +12,19 @@ function App() {
   const [orderBy, setOrderBy] = useState<string>('relevance');
   const [startIndex, setStartIndex] = useState<number>(0);
 
+  const navigate = useNavigate();
+
   const { data, isLoading, isFetching, error } = useGetAllBooksQuery({
     searchTerms,
     categoryData: filterBy,
     sortData: orderBy,
     startIndex,
   });
+
+  useEffect(() => {
+    navigate('/');
+    setStartIndex(0);
+  }, [searchTerms, filterBy, orderBy]);
 
   return (
     <div className="App">
@@ -45,7 +52,10 @@ function App() {
             />
           }
         />
-        <Route path="/book/:id" element={<Book setSearchTerms={setSearchTerms} />} />
+        <Route
+          path="/book/:id"
+          element={<Book setSearchTerms={setSearchTerms} />}
+        />
       </Routes>
     </div>
   );

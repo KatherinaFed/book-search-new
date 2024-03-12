@@ -1,4 +1,4 @@
-import { ContentOption } from './types';
+import { ContentOption, DataBookParams } from './types';
 
 export const getQueryParams = (
   searchData: string,
@@ -27,3 +27,10 @@ export const sortingBy: ContentOption[] = [
   { value: 'relevance', name: 'Relevance' },
   { value: 'newest', name: 'Newest' },
 ];
+
+export const DEFAULT_STATE: DataBookParams = {
+  searchTerms: '',
+  categoryData: 'all',
+  sortData: 'relevance',
+  startIndex: 0,
+};
