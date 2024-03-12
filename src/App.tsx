@@ -11,7 +11,6 @@ function App() {
   const [filterBy, setFilterBy] = useState<string>('all');
   const [orderBy, setOrderBy] = useState<string>('relevance');
   const [startIndex, setStartIndex] = useState<number>(0);
-  console.log('startIndex', startIndex);
 
   const { data, isLoading, isFetching, error } = useGetAllBooksQuery({
     searchTerms,
@@ -40,6 +39,9 @@ function App() {
               isFetching={isFetching}
               errorFetch={error}
               setStartIndex={setStartIndex}
+              searchTerms={searchTerms}
+              filterBy={filterBy}
+              orderBy={orderBy}
             />
           }
         />

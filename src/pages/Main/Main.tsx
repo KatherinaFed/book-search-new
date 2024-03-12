@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import { SerializedError } from '@reduxjs/toolkit';
 import { BookItem, BookResponse } from '../../helpers/types';
@@ -15,6 +15,9 @@ interface MainContentProps {
   isFetching: boolean;
   errorFetch: FetchBaseQueryError | SerializedError | undefined;
   setStartIndex: React.Dispatch<React.SetStateAction<number>>;
+  searchTerms: string;
+  filterBy: string;
+  orderBy: string;
 }
 
 function Main({
@@ -23,9 +26,17 @@ function Main({
   isFetching,
   errorFetch,
   setStartIndex,
+  searchTerms,
+  filterBy,
+  orderBy,
 }: MainContentProps) {
   const [page, setPage] = useState(0);
 
+  useEffect(() => {
+    setPage(1);
+    setStartIndex(0);
+  }, [searchTerms, filterBy, orderBy]);
+  
   if (isLoading && isFetching) {
     return <Preloader />;
   }
