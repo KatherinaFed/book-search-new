@@ -13,7 +13,7 @@ function SearchForm({ setSearchData, setStartIndex }: SearchFormProps) {
     e.preventDefault();
 
     setSearchData(searchBook);
-    // setSearchBook('');
+    setSearchBook('');
     setStartIndex(0);
   };
 
