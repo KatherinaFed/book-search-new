@@ -22,8 +22,7 @@ API: [Google API information](https://developers.google.com/books/docs/v1/using)
 - Pagination;
 
 ## Key technologies:
-- React + Vite;
-- TypeScript;
+- React + TypeScript + Vite;
 - Sass;
 - Ant design;
 - Redux Toolkit (RTK-query);
