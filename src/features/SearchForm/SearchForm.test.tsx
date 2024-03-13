@@ -23,7 +23,7 @@ describe('SearchForm', () => {
     expect(buttonElement).toBeDefined();
   });
 
-  it('should submit a form with data', async () => {
+  it('should submit form with data', async () => {
     const testInput = 'Harry Potter';
 
     vi.spyOn(React, 'useState').mockImplementationOnce((init?: string) => [

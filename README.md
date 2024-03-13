@@ -41,8 +41,17 @@ git clone https://github.com/KatherinaFed/book-search-new.git
 cd book-search-new
 
 # Step 3: Install dependencies 
-npm install
+yarn
 
 # Step 4: Start the app
-npm run dev
+yarn run dev
 ```
+
+### Test
+```
+yarn test
+```
+
+### Build
+```
+yarn build
