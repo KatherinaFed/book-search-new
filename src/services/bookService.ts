@@ -8,12 +8,10 @@ export const bookServiceApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: import.meta.env.VITE_APP_API_URL,
   }),
-  tagTypes: ['Books'],
   endpoints: (builder) => ({
     // GET ALL BOOKS
     getAllBooks: builder.query<BookResponse, DataBookParams>({
       query: (dataParams) => {
-
         const queryParams = getQueryParams(
           dataParams.searchTerms,
           dataParams.categoryData,
@@ -48,7 +46,7 @@ export const bookServiceApi = createApi({
             totalItems: newItems.totalItems,
             items: [...currentCache.items, ...newItems.items],
           };
-      
+
           return updatedCache;
         }
 
@@ -59,15 +57,13 @@ export const bookServiceApi = createApi({
         return currentCache;
       },
       forceRefetch({ currentArg, previousArg }) {
-        return currentArg?.startIndex !== previousArg?.startIndex
+        return currentArg?.startIndex !== previousArg?.startIndex;
       },
-      providesTags: ['Books'],
     }),
     // GET A BOOK BY ID
     getBookById: builder.query<BookItem, string>({
       query: (bookID) =>
         `volumes/${bookID}?key=${import.meta.env.VITE_APP_API_KEY}`,
-      providesTags: ['Books'],
     }),
   }),
 });
